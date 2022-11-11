@@ -7,3 +7,20 @@ III. Bài tập áp dụng mô hình MVC:
          _ Cập nhật thông tin sinh viên
          _ Tìm kiếm sinh viên
          _ Xóa sinh viên
+
+   - Xây dựng chức năng Xem thông tin sinh viên theo mô hình MCV:
+      - Tạo thư mục: MVC_EXAMPLE
+         + Controller -> C_Student.php
+         + Model -> {E_Student.php, M_Student.php}
+         + View -> {StudentList.html, StudentDetail.html}
+         + Index.php
+
+      {
+                      View -> Controller -> Model {BO, DAO, Bean_entity}
+         <- Client <- View <- Controller <- Model {BO, DAO, Bean_entity}
+                              | gọi Model
+                              | nhận KQ tử Model
+                              | lựa chọn View
+      }
+         
+
