@@ -16,7 +16,6 @@ class Ctrl_Student
         } 
 
         else if (isset($_POST['btnAddSV'])) {
-            var_dump($_POST);
             $id = $_REQUEST['id'];
             $name = $_REQUEST['tensv'];
             $age = $_REQUEST['tuoi'];
@@ -30,6 +29,30 @@ class Ctrl_Student
         
         else if(isset($_GET['mod2'])){
             include_once("../View/EditStudent.php");
+        }
+
+        else if(isset($_POST['checkEdit'])){
+            $id = $_REQUEST['id'];
+            
+            $modelStudent = new Model_Student();
+            $lmaostudent = $modelStudent->getStudentDetail($id);
+            include_once("../View/FormEdit.php");
+        }
+
+        else if(isset($_POST['btnEditSV'])){
+            $id = $_REQUEST['id'];
+            $name = $_REQUEST['name'];
+            $age = $_REQUEST['age'];
+            $university = $_REQUEST['university'];
+
+            $modelStudent = new Model_Student();
+            $modelStudent->updateStudent($id, $name, $age, $university);
+            $studentList = $modelStudent->getAllStudent();
+            include_once("../View/StudentList.php");
+        }
+
+        else if(isset($_GET['mod3'])){
+                    
         }
 
         else {

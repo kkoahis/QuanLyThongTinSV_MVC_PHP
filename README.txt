@@ -15,12 +15,12 @@ III. Bài tập áp dụng mô hình MVC:
          + View -> {StudentList.html, StudentDetail.html}
          + Index.php
 
-      {
-                      View -> Controller -> Model {BO, DAO, Bean_entity}
-         <- Client <- View <- Controller <- Model {BO, DAO, Bean_entity}
-                              | gọi Model
-                              | nhận KQ tử Model
-                              | lựa chọn View
-      }
+      
+                     View -> Controller -> Model {BO, DAO, Bean_entity}
+        <- Client <- View <- Controller <- Model {BO, DAO, Bean_entity}
+                           | gọi Model
+                           | nhận KQ tử Model
+                           | lựa chọn View
+      
          
 

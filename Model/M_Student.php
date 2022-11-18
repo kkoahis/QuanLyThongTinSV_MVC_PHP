@@ -41,4 +41,14 @@ class Model_Student
       $rs = mysqli_query($link, $querry);
       mysqli_close($link);
    }
+
+   public function updateStudent($id, $name, $age, $university)
+   {
+      $link = mysqli_connect('localhost', 'root', '') or die('Could not connect:'. mysqli_error($link));
+      mysqli_select_db($link, 'DULIEU999');
+
+      $querry = "UPDATE SINHVIEN SET name = '$name', age = '$age', university = '$university' WHERE id = $id";
+      $rs = mysqli_query($link, $querry);
+      mysqli_close($link); 
+   }
 }
