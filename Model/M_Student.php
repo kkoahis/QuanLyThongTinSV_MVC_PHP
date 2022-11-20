@@ -44,11 +44,52 @@ class Model_Student
 
    public function updateStudent($id, $name, $age, $university)
    {
-      $link = mysqli_connect('localhost', 'root', '') or die('Could not connect:'. mysqli_error($link));
+      $link = mysqli_connect('localhost', 'root', '') or die('Could not connect:' . mysqli_error($link));
       mysqli_select_db($link, 'DULIEU999');
 
       $querry = "UPDATE SINHVIEN SET name = '$name', age = '$age', university = '$university' WHERE id = $id";
       $rs = mysqli_query($link, $querry);
-      mysqli_close($link); 
+      mysqli_close($link);
+   }
+
+   public function deleteStudent($id)
+   {
+      $link = mysqli_connect('localhost', 'root', '') or die('Could not connect:' . mysqli_error($link));
+      mysqli_select_db($link, 'DULIEU999');
+
+      $querry = "DELETE FROM SINHVIEN WHERE id = $id";
+      $rs = mysqli_query($link, $querry);
+      mysqli_close($link);
+   }
+
+   public function searchStudent($check, $col)
+   {
+      $link = mysqli_connect('localhost', 'root', '') or die('Could not connect:' . mysqli_error($link));
+      mysqli_select_db($link, 'DULIEU999');
+
+      $check = $_GET['search'];
+      $col = $_GET['optionSearch'];
+
+
+      $allStudent = $this->getAllStudent();
+      return $allStudent[$check];
+
+      if ($col == 'searchID') {
+      }
+      // else if($col =='searchName'){
+      //    $querry = "SELECT * FROM SINHVIEN WHERE name LIKE '%$check%';";
+      //    $rs = mysqli_query($link, $querry);
+      //    mysqli_close($link);
+      // }
+      // else if($col =='searchAge'){
+      //    $querry = "SELECT * FROM SINHVIEN WHERE age = $check";
+      //    $rs = mysqli_query($link, $querry);
+      //    mysqli_close($link);
+      // }
+      // else if($col =='searchUniversity'){
+      //    $querry = "SELECT * FROM SINHVIEN WHERE University LIKE '%$check%';";
+      //    $rs = mysqli_query($link, $querry);
+      //    mysqli_close($link);
+      // }
    }
 }

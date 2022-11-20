@@ -52,7 +52,31 @@ class Ctrl_Student
         }
 
         else if(isset($_GET['mod3'])){
-                    
+            include_once("../View/DeleteStudent.php");
+        }
+
+        else if(isset($_POST['btnXoaSV'])){
+            $id = $_REQUEST['id'];
+
+            $modelStudent = new Model_Student();
+            $modelStudent->deleteStudent($id);
+
+            $studentList = $modelStudent->getAllStudent();
+            include_once("../View/StudentList.php");
+        }
+
+        else if(isset($_GET['mod4'])){
+            include_once("../View/SearchStudent.php");
+        }
+
+        else if(isset($_GET['btnTimkiemNV'])){
+            $check1 = $_GET['search'];
+            $column1 = $_GET['optionSearch'];
+
+            $modelStudent = new Model_Student();
+            $result = $modelStudent->searchStudent($check1, $column1);
+
+            include_once("../View/SearchInfoStudent.php");
         }
 
         else {

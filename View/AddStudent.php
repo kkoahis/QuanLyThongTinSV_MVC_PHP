@@ -32,7 +32,7 @@
       </div>
 
       <button name="btnAddSV">Add Sv</button>
-      <p><a href="../index.php">BACk</a></p>
+      <p><a href="../index.php">BACK</a></p>
    </form>
 </body>
 
